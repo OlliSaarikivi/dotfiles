@@ -14,7 +14,7 @@ end
 
 set -x LS_COLORS 'ow=01;36;40'
 
-alias v "nvim"
+alias vim "nvim"
 alias dark "base16-gruvbox-dark-hard"
 alias light "base16-gruvbox-light-hard"
 
