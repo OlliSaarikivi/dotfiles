@@ -1,12 +1,15 @@
 #!/bin/bash
 ROOT=`dirname $0`
+cd $ROOT
 sudo apt-get update -y
-sudo apt-get install -y fish stow git tmux neovim curl
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-for d in $ROOT/*/ ; do
-    stow "$d"
-done
+sudo apt-get install -y stow git tmux neovim curl
+git submodule update --init --recursive
+stow fish
+stow base16
+stow git
+stow neovim
+stow wsl
+stow tmux
 if [ "$SHELL" != `which fish` ]; then
     chsh -s `which fish`
 fi

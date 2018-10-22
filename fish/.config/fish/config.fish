@@ -15,15 +15,13 @@ end
 set -x LS_COLORS 'ow=01;36;40'
 
 alias vim "nvim"
-alias dark "base16-gruvbox-dark-hard"
-alias light "base16-gruvbox-light-hard"
+alias vi "nvim"
+alias dark "eval sh $HOME/.config/base16-shell/scripts/base16-gruvbox-dark-hard.sh"
+alias light "eval sh $HOME/.config/base16-shell/scripts/base16-gruvbox-light-hard.sh"
+
+dark
 
 set -gx PATH $PATH $HOME/.local/bin
 
 umask 022
-
-if status is-interactive
-and not set -q TMUX
-    exec tmux
-end
 
