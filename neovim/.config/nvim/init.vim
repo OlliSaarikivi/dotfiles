@@ -27,6 +27,7 @@ set hlsearch
 set nonumber
 set nowrap
 set hidden
+set nofixendofline
 
 " open new split panes to right and below (as you probably expect)
 set splitright
