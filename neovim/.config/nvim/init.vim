@@ -4,9 +4,20 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+Plug 'rakr/vim-one'
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
 Plug 'hukeyue/vim-clangd'
 call plug#end()
+syntax enable
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+set background=dark
+let g:one_allow_italics=1
+colorscheme one
+let g:airline_theme='one'
 
 " Auto start NERD tree when opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
@@ -39,9 +50,12 @@ let mapleader=";"
 
 " Toggle NERDTree
 map <Leader><Space> :NERDTreeToggle<CR>
-"
+
 " toggle line numbers
 nnoremap <silent> <leader>n :set number! number?<CR>
+
+" toggle git gutter
+nnoremap <silent> <leader>g :GitGutterSignsToggle<CR>
 
 " toggle line wrap
 nnoremap <silent> <leader>w :set wrap! wrap?<CR>
